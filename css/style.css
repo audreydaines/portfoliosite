@@ -1588,18 +1588,20 @@ body.offcanvas {
 }
 
 #colorlib-aside .author-img {
-  width: 46px !important;
-  height: 46px !important;
+  width: 110px !important;
+  height: 110px !important;
   margin: 0 !important;
   background-size: cover !important;
   background-position: center center !important;
+  border: 3px solid #fff;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.12);
   flex-shrink: 0;
 }
 
 #colorlib-aside #colorlib-logo {
   width: auto !important;
   margin: 0 !important;
-  font-size: 20px !important;
+  font-size: 24px !important;
   text-align: left !important;
 }
 
@@ -1660,8 +1662,8 @@ body.offcanvas {
 @media screen and (max-width: 768px) {
   #colorlib-aside {
     flex-direction: column !important;
-    padding: 10px 15px !important;
-    gap: 8px;
+    padding: 12px 15px !important;
+    gap: 10px;
   }
   #colorlib-aside #colorlib-main-menu ul {
     flex-wrap: wrap !important;
@@ -1670,6 +1672,8 @@ body.offcanvas {
     margin: 0 !important;
   }
   #colorlib-main {
-    padding-top: 112px !important;
+    width: 100% !important;
+    float: none !important;
+    padding-top: 140px !important;
   }
 }
