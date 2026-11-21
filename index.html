@@ -557,26 +557,35 @@
   // 1. CONFIGURE YOUR SEQUENCE HERE
   const startFrame = 10; // Starts on ezgif-frame-010.jpg
   const endFrame = 120;  // <-- Replace with your last ezgif frame number
+  const skipStart = 90;  // First duplicate frame to skip
+  const skipEnd = 110;   // Last duplicate frame to skip (keeps frame 89, skips 90-110)
   const speed = 2.0;     // 2.0 = plays forward to end, then reverses back to start once
-  const totalFrames = endFrame - startFrame + 1;
 
   const currentFrame = index => (
     `images/sequence/ezgif-frame-${String(index).padStart(3, '0')}.jpg`
   );
 
+  // Build list of valid frame numbers, skipping 90 through 110
+  const frameNumbers = [];
+  for (let i = startFrame; i <= endFrame; i++) {
+    if (i >= skipStart && i <= skipEnd) continue;
+    frameNumbers.push(i);
+  }
+  const totalFrames = frameNumbers.length;
+
   // 2. Auto-match canvas resolution & draw the 10th frame immediately
   const images = [];
   const img = new Image();
-  img.src = currentFrame(startFrame);
+  img.src = currentFrame(frameNumbers[0]);
   img.onload = function() {
     canvas.width = img.naturalWidth;
     canvas.height = img.naturalHeight;
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
 
-  for (let i = startFrame; i <= endFrame; i++) {
+  for (let i = 0; i < totalFrames; i++) {
     const frameImg = new Image();
-    frameImg.src = currentFrame(i);
+    frameImg.src = currentFrame(frameNumbers[i]);
     images.push(frameImg);
   }
 
