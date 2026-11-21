@@ -555,28 +555,31 @@
   const context = canvas.getContext("2d");
 
   // 1. CONFIGURE YOUR SEQUENCE HERE
-  const frameCount = 120; // <-- Replace with your exact number of ezgif frames
+  const startFrame = 10; // <-- Starts on ezgif-frame-010.jpg
+  const endFrame = 120;  // <-- Replace with your last ezgif frame number
+  const totalFrames = endFrame - startFrame + 1;
+
   const currentFrame = index => (
     `images/sequence/ezgif-frame-${String(index).padStart(3, '0')}.jpg`
   );
 
-  // 2. Auto-match canvas resolution to your image dimensions & draw frame 1
+  // 2. Auto-match canvas resolution & draw the 10th frame immediately
   const images = [];
   const img = new Image();
-  img.src = currentFrame(1);
+  img.src = currentFrame(startFrame);
   img.onload = function() {
     canvas.width = img.naturalWidth;
     canvas.height = img.naturalHeight;
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
 
-  for (let i = 1; i <= frameCount; i++) {
+  for (let i = startFrame; i <= endFrame; i++) {
     const frameImg = new Image();
     frameImg.src = currentFrame(i);
     images.push(frameImg);
   }
 
-  // 3. Update frame based on scroll percentage
+  // 3. Update frame based on scroll percentage (from frame 10 to endFrame)
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
@@ -586,8 +589,8 @@
         const scrollFraction = maxScrollTop > 0 ? Math.min(1, Math.max(0, scrollTop / maxScrollTop)) : 0;
         
         const frameIndex = Math.min(
-          frameCount - 1,
-          Math.floor(scrollFraction * frameCount)
+          totalFrames - 1,
+          Math.floor(scrollFraction * totalFrames)
         );
 
         if (images[frameIndex] && images[frameIndex].complete) {
