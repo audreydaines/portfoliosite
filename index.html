@@ -553,11 +553,13 @@
   const canvas = document.getElementById("scroll-animation-canvas");
   const context = canvas.getContext("2d");
 
+
   // 1. CONFIGURE YOUR SEQUENCE HERE
-  const frameCount = 144; // <-- Replace with your exact number of images
+  const frameCount = 120; // <-- Replace 120 with your exact number of ezgif frames
   const currentFrame = index => (
-    `images/sequence/frame_${String(index).padStart(4, '0')}.jpg`
+    `images/sequence/ezgif-frame-${String(index).padStart(3, '0')}.jpg`
   );
+
 
   // Set canvas internal resolution (match your video's aspect ratio, e.g. 600x800)
   canvas.width = 600;
