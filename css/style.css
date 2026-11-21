@@ -1677,3 +1677,37 @@ body.offcanvas {
     padding-top: 140px !important;
   }
 }
+/* =======================================================
+*  RIGHT-SIDE SCROLL SEQUENCE ANIMATION
+* ======================================================= */
+
+/* Pin the animation canvas to the right side below your top navbar */
+#scroll-animation-canvas {
+  position: fixed;
+  top: 140px;           /* Matches the height of your top navigation bar */
+  right: 2%;
+  width: 35%;           /* Width of the right-side animation column */
+  height: calc(100vh - 160px);
+  object-fit: contain;  /* Keeps your video from stretching or cropping */
+  z-index: 10;
+  pointer-events: none; /* Lets users click/scroll through transparent edges */
+}
+
+/* Shift main content to the left 62% on desktop so nothing overlaps */
+@media screen and (min-width: 992px) {
+  #colorlib-main {
+    width: 62% !important;
+    margin-right: 38% !important;
+  }
+}
+
+/* Hide the side animation on tablets/phones so mobile text has full width */
+@media screen and (max-width: 991px) {
+  #scroll-animation-canvas {
+    display: none;
+  }
+  #colorlib-main {
+    width: 100% !important;
+    margin-right: 0 !important;
+  }
+}
