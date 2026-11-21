@@ -1683,16 +1683,15 @@ body.offcanvas {
 
 #scroll-animation-canvas {
   position: fixed;
-  top: 55%;
-  transform: translateY(-50%); /* Vertically centers the animation */
-  right: 2%;
-  width: 44%;                  /* Increased from 35% -> 44% for a much larger display */
-  max-height: calc(100vh - 160px);
-  height: auto;                /* Preserves exact video proportions */
-  object-fit: contain;
+  top: 135px;                  /* Starts right under your top navbar */
+  right: 0;
+  width: 45%;
+  height: calc(100vh - 135px); /* Fills full remaining screen height */
+  object-fit: cover;           /* Fills the entire box without empty space */
   z-index: 10;
   pointer-events: none;
 }
+
 
 /* Give the left content column 52% so it sits cleanly next to the 44% animation */
 @media screen and (min-width: 992px) {
