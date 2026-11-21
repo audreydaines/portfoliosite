@@ -1427,3 +1427,126 @@ body.offcanvas {
 
 .js .animate-box {
   opacity: 0; }
+/* =========================================
+   TOP NAVIGATION BAR LAYOUT
+   ========================================= */
+
+/* 1. Turn the left sidebar into a fixed horizontal top bar */
+#colorlib-aside {
+    width: 100% !important;
+    height: auto !important;
+    min-height: 0 !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    right: 0 !important;
+    bottom: auto !important;
+    padding: 10px 40px !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: space-between !important;
+    background: #f2f3f7 !important;
+    border-bottom: 1px solid #e6e6e6;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    z-index: 1001 !important;
+    overflow: visible !important;
+    transform: none !important;
+}
+
+/* 2. Arrange the avatar + name side-by-side on the left */
+#colorlib-aside > .text-center {
+    display: flex !important;
+    align-items: center !important;
+    gap: 14px;
+    text-align: left !important;
+    margin: 0 !important;
+}
+
+/* Make the profile photo a neat compact circle in the top bar */
+#colorlib-aside .author-img {
+    width: 48px !important;
+    height: 48px !important;
+    margin: 0 !important;
+    flex-shrink: 0;
+}
+
+/* Keep the name compact */
+#colorlib-aside #colorlib-logo {
+    margin: 0 !important;
+    font-size: 20px !important;
+    line-height: 1.2 !important;
+}
+
+/* Hide the subtitle and sidebar copyright footer to keep the top bar slim */
+#colorlib-aside .position,
+#colorlib-aside .colorlib-footer {
+    display: none !important;
+}
+
+/* 3. Force the Bootstrap #navbar collapse menu to stay visible & horizontal */
+#colorlib-aside #colorlib-main-menu {
+    margin: 0 !important;
+    min-height: 0 !important;
+    border: none !important;
+}
+
+#colorlib-aside #navbar,
+#colorlib-aside #navbar.collapse {
+    display: block !important;
+    visibility: visible !important;
+    height: auto !important;
+    padding: 0 !important;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+#colorlib-aside #colorlib-main-menu ul {
+    display: flex !important;
+    flex-direction: row !important;
+    align-items: center !important;
+    gap: 24px;
+    margin: 0 !important;
+    padding: 0 !important;
+    list-style: none !important;
+}
+
+#colorlib-aside #colorlib-main-menu ul li {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: inline-block !important;
+}
+
+#colorlib-aside #colorlib-main-menu ul li a {
+    padding: 6px 0 !important;
+    font-size: 12px !important;
+    letter-spacing: 1px;
+}
+
+/* 4. Expand main content to 100% width and push it below the top navbar */
+#colorlib-main {
+    width: 100% !important;
+    float: none !important;
+    padding-top: 70px !important;
+}
+
+/* Hide the old mobile hamburger button */
+.colorlib-nav-toggle {
+    display: none !important;
+}
+
+/* 5. Mobile screens: stack name and links cleanly */
+@media screen and (max-width: 768px) {
+    #colorlib-aside {
+        flex-direction: column !important;
+        padding: 10px 15px !important;
+        gap: 8px;
+    }
+    #colorlib-aside #colorlib-main-menu ul {
+        flex-wrap: wrap !important;
+        justify-content: center !important;
+        gap: 14px;
+    }
+    #colorlib-main {
+        padding-top: 110px !important;
+    }
+}
