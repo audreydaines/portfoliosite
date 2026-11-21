@@ -545,6 +545,7 @@
 	
 	<!-- MAIN JS -->
 	<script src="js/main.js"></script>
+									
 <!-- Fixed Right-Side Scroll Animation Canvas -->
 <canvas id="scroll-animation-canvas"></canvas>
 
@@ -553,23 +554,19 @@
   const canvas = document.getElementById("scroll-animation-canvas");
   const context = canvas.getContext("2d");
 
-
   // 1. CONFIGURE YOUR SEQUENCE HERE
-  const frameCount = 120; // <-- Replace 120 with your exact number of ezgif frames
+  const frameCount = 120; // <-- Replace with your exact number of ezgif frames
   const currentFrame = index => (
     `images/sequence/ezgif-frame-${String(index).padStart(3, '0')}.jpg`
   );
 
-
-  // Set canvas internal resolution (match your video's aspect ratio, e.g. 600x800)
-  canvas.width = 600;
-  canvas.height = 800;
-
-  // 2. Preload all frames into memory for flicker-free scrubbing
+  // 2. Auto-match canvas resolution to your image dimensions & draw frame 1
   const images = [];
   const img = new Image();
   img.src = currentFrame(1);
   img.onload = function() {
+    canvas.width = img.naturalWidth;
+    canvas.height = img.naturalHeight;
     context.drawImage(img, 0, 0, canvas.width, canvas.height);
   };
 
