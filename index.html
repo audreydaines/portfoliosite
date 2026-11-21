@@ -555,9 +555,9 @@
   const context = canvas.getContext("2d");
 
   // 1. CONFIGURE YOUR SEQUENCE HERE
-  const startFrame = 10; // <-- Starts on ezgif-frame-010.jpg
+  const startFrame = 10; // Starts on ezgif-frame-010.jpg
   const endFrame = 120;  // <-- Replace with your last ezgif frame number
-  const speed = 1.8; 
+  const speed = 2.0;     // 2.0 = plays forward to end, then reverses back to start once
   const totalFrames = endFrame - startFrame + 1;
 
   const currentFrame = index => (
@@ -580,15 +580,19 @@
     images.push(frameImg);
   }
 
-  // 3. Update frame based on scroll percentage (from frame 10 to endFrame)
+  // 3. Ping-pong (forward -> reverse) based on scroll position
   let ticking = false;
   window.addEventListener("scroll", () => {
     if (!ticking) {
       window.requestAnimationFrame(() => {
         const scrollTop = window.scrollY || document.documentElement.scrollTop;
         const maxScrollTop = document.documentElement.scrollHeight - window.innerHeight;
-        const scrollFraction = maxScrollTop > 0 ? Math.min(1, Math.max(0, scrollTop / maxScrollTop)) : 0;
-        
+        const rawFraction = maxScrollTop > 0 ? Math.max(0, (scrollTop / maxScrollTop) * speed) : 0;
+
+        // Triangle wave: goes 0 -> 1 -> 0 -> 1 seamlessly without jumping
+        const cycle = rawFraction % 2;
+        const scrollFraction = cycle <= 1 ? cycle : 2 - cycle;
+
         const frameIndex = Math.min(
           totalFrames - 1,
           Math.floor(scrollFraction * totalFrames)
