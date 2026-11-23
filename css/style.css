@@ -1676,6 +1676,19 @@ body.offcanvas {
     float: none !important;
     padding-top: 140px !important;
   }
+  /* Size the logo/signature image in the top navigation bar */
+#colorlib-aside #colorlib-logo .navbar-brand-img {
+  height: 55px;        /* Adjust this height (e.g., 45px–75px) to fit your image */
+  width: auto;         /* Keeps the image's original aspect ratio */
+  max-width: 240px;    /* Prevents wide logos from crowding the menu links */
+  display: block;
+  object-fit: contain;
+}
+
+@media screen and (max-width: 768px) {
+  #colorlib-aside #colorlib-logo .navbar-brand-img {
+    height: 40px;
+  }
 }
 /* =======================================================
 *  RIGHT-SIDE SCROLL SEQUENCE ANIMATION (LARGER)
