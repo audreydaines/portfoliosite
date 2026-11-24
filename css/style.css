@@ -1599,6 +1599,7 @@ body.offcanvas {
 }
 
 /* Keep the logo wrapper compact so it never stretches the navbar height */
+/* Keep the logo wrapper compact so it never stretches the navbar height */
 #colorlib-aside #colorlib-logo {
   width: auto !important;
   margin: 0 !important;
@@ -1630,6 +1631,7 @@ body.offcanvas {
     height: 55px !important;
   }
 }
+
 
 
 /* Hide the subtitle and sidebar copyright footer so the top bar stays slim */
