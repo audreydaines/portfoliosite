@@ -1700,19 +1700,7 @@ body.offcanvas {
     float: none !important;
     padding-top: 140px !important;
   }
-  /* Size the logo/signature image in the top navigation bar */
-#colorlib-aside #colorlib-logo .navbar-brand-img {
-  height: 55px;        /* Adjust this height (e.g., 45px–75px) to fit your image */
-  width: auto;         /* Keeps the image's original aspect ratio */
-  max-width: 240px;    /* Prevents wide logos from crowding the menu links */
-  display: block;
-  object-fit: contain;
-}
-
-@media screen and (max-width: 768px) {
-  #colorlib-aside #colorlib-logo .navbar-brand-img {
-    height: 40px;
-  }
+  
 }
 /* =======================================================
 *  RIGHT-SIDE SCROLL SEQUENCE ANIMATION (LARGER)
@@ -1748,37 +1736,3 @@ body.offcanvas {
     margin-right: 0 !important;
   }
 }
-/* =======================================================
-*  LOCK NAVBAR HEIGHT & FORCE LOGO IMAGE TO FIT
-* ======================================================= */
-
-/* 1. Lock the top bar to its exact 134px height (110px photo + 12px top/bottom padding) */
-#colorlib-aside {
-  height: 134px !important;
-  max-height: 134px !important;
-  overflow: hidden !important;
-}
-
-/* 2. Target ANY image inside #colorlib-logo (with or without a class name) */
-#colorlib-aside #colorlib-logo img {
-  height: 80px !important;
-  max-height: 80px !important;
-  width: auto !important;
-  max-width: 260px !important;
-  object-fit: contain !important;
-  display: block !important;
-  margin: 0 !important;
-}
-
-/* Mobile height lock */
-@media screen and (max-width: 768px) {
-  #colorlib-aside {
-    height: auto !important;
-    max-height: none !important;
-  }
-  #colorlib-aside #colorlib-logo img {
-    height: 55px !important;
-    max-height: 55px !important;
-  }
-}
-
