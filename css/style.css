@@ -1598,17 +1598,39 @@ body.offcanvas {
   flex-shrink: 0;
 }
 
+/* Keep the logo wrapper compact so it never stretches the navbar height */
 #colorlib-aside #colorlib-logo {
   width: auto !important;
   margin: 0 !important;
-  font-size: 24px !important;
-  text-align: left !important;
+  padding: 0 !important;
+  line-height: 0 !important; /* Removes extra vertical text spacing around the image */
+  display: flex !important;
+  align-items: center !important;
 }
 
 #colorlib-aside #colorlib-logo a {
-  text-align: left !important;
-  padding-right: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  padding: 0 !important;
 }
+
+/* Resize the added image to fit neatly inside the existing 110px bar height */
+#colorlib-aside #colorlib-logo .navbar-brand-img {
+  height: 75px !important;   /* Fits comfortably inside the 110px bar height */
+  max-height: 95px !important;
+  width: auto !important;
+  max-width: 260px !important;
+  object-fit: contain;
+  display: block;
+}
+
+/* Keep mobile sizing proportional */
+@media screen and (max-width: 768px) {
+  #colorlib-aside #colorlib-logo .navbar-brand-img {
+    height: 55px !important;
+  }
+}
+
 
 /* Hide the subtitle and sidebar copyright footer so the top bar stays slim */
 #colorlib-aside .position,
