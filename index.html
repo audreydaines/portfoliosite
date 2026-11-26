@@ -69,30 +69,33 @@
 
   if (!overlay || !video) return;
 
-  // 1. Check if the visitor has already seen the intro during this browser session
   if (sessionStorage.getItem("introPlayed") === "true") {
     overlay.style.display = "none";
     return;
   }
-
-  // Mark intro as played for this visit
   sessionStorage.setItem("introPlayed", "true");
 
-  // Lock page scrolling while the intro video plays
   document.body.style.overflow = "hidden";
 
   function fadeOutIntro() {
     if (overlay.classList.contains("fade-out")) return;
     overlay.classList.add("fade-out");
-    document.body.style.overflow = ""; // Re-enable page scrolling
-
-    // Remove the overlay completely after the 1.2s zoom + fade transition finishes
+    document.body.style.overflow = "";
     setTimeout(() => {
       overlay.style.display = "none";
     }, 1200);
   }
 
-  // 2. Trigger zoom + fade smoothly as the video finishes
+  // Explicitly enforce muted + trigger play() for strict browser policies
+  video.muted = true;
+  const playPromise = video.play();
+  if (playPromise !== undefined) {
+    playPromise.catch(() => {
+      // If browser blocks autoplay completely, fade right into the site
+      fadeOutIntro();
+    });
+  }
+
   video.addEventListener("ended", fadeOutIntro);
   video.addEventListener("timeupdate", () => {
     if (video.duration && video.currentTime >= video.duration - 0.5) {
@@ -100,13 +103,10 @@
     }
   });
 
-  // 3. Fallback: if video fails to load or autoplay is blocked, reveal site immediately
+  // Safety net: fade out on error or if video hasn't finished within 8 seconds
   video.addEventListener("error", fadeOutIntro);
-  setTimeout(() => {
-    if (video.paused) fadeOutIntro();
-  }, 4000);
+  setTimeout(fadeOutIntro, 8000);
 
-  // 4. Allow visitors to skip immediately
   skipBtn.addEventListener("click", fadeOutIntro);
 })();
 </script>
