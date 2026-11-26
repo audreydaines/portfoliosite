@@ -1935,3 +1935,44 @@ p {
   background-color: #090b0e;
   mix-blend-mode: lighten; /* Makes pure black pixels in your MRI frames completely transparent */
 }
+/* =======================================================
+*  PREVENT NAVBAR OVERLAP ON RESIZED / SMALL WINDOWS
+* ======================================================= */
+
+/* 1. Give extra top clearance below the navbar on medium/narrow desktop windows */
+@media screen and (max-width: 1199px) {
+  #colorlib-main {
+    padding-top: 175px !important;
+  }
+}
+
+/* 2. On tablet/narrow windows where navbar stacks, push hero content well below it */
+@media screen and (max-width: 991px) {
+  #colorlib-aside {
+    flex-direction: column !important;
+    padding: 12px 15px !important;
+    gap: 10px !important;
+  }
+  #colorlib-aside #colorlib-main-menu ul {
+    flex-wrap: wrap !important;
+    justify-content: center !important;
+    gap: 14px !important;
+  }
+  #colorlib-main {
+    padding-top: 215px !important;
+  }
+}
+
+/* 3. Prevent .js-fullheight from vertically clipping the top of "Welcome..." */
+#colorlib-hero,
+#colorlib-hero .flexslider,
+#colorlib-hero .slider-text,
+#colorlib-hero .slider-text-inner {
+  height: auto !important;
+  min-height: 0 !important;
+}
+
+#colorlib-hero .slider-text-inner {
+  padding-top: 30px !important;
+  padding-bottom: 40px !important;
+}
