@@ -56,7 +56,7 @@
 <!-- Full-Screen Intro Video Splash Overlay -->
 <div id="intro-video-overlay">
   <video id="intro-video" autoplay muted playsinline preload="auto">
-    <source src="images/SlicerCapture4.mp4" type="video/mp4">
+    <source src="images/intro.mp4" type="video/mp4">
   </video>
   <button id="skip-intro-btn" type="button">Skip &rarr;</button>
 </div>
@@ -69,9 +69,7 @@
 
   if (!overlay || !video) return;
 
-  }
-  sessionStorage.setItem("introPlayed", "true");
-
+  // Lock page scrolling while the intro video plays
   document.body.style.overflow = "hidden";
 
   function fadeOutIntro() {
@@ -83,12 +81,11 @@
     }, 1200);
   }
 
-  // Explicitly enforce muted + trigger play() for strict browser policies
+  // Enforce muted + trigger play() for browser autoplay policies
   video.muted = true;
   const playPromise = video.play();
   if (playPromise !== undefined) {
     playPromise.catch(() => {
-      // If browser blocks autoplay completely, fade right into the site
       fadeOutIntro();
     });
   }
@@ -107,7 +104,6 @@
   skipBtn.addEventListener("click", fadeOutIntro);
 })();
 </script>
-
 
 	<div id="colorlib-page">
 		<div class="container-wrap">
