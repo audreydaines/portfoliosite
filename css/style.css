@@ -1976,3 +1976,41 @@ p {
   padding-top: 30px !important;
   padding-bottom: 40px !important;
 }
+/* =======================================================
+*  STICKY NAVBAR (NEVER OVERLAPS HERO TITLE AT ANY SIZE)
+* ======================================================= */
+
+/* 1. Make the navbar sticky instead of fixed so it physically pushes content below it */
+#colorlib-aside {
+  position: sticky !important;
+  position: -webkit-sticky !important;
+  top: 0 !important;
+  width: 100% !important;
+  z-index: 1001 !important;
+}
+
+/* 2. Remove the now-unnecessary top padding on #colorlib-main */
+#colorlib-main {
+  padding-top: 25px !important;
+}
+
+/* 3. Override main.js inline heights & table-cell vertical centering on the Hero */
+#colorlib-hero,
+#colorlib-hero .flexslider,
+#colorlib-hero .flexslider .slides > li,
+#colorlib-hero .slider-text,
+#colorlib-hero .slider-text > .slider-text-inner {
+  height: auto !important;
+  min-height: 0 !important;
+  display: block !important;
+}
+
+#colorlib-hero .slider-text > .slider-text-inner {
+  padding: 20px 15px 40px 15px !important;
+  vertical-align: top !important;
+}
+
+/* 4. Allow #colorlib-page overflow so position: sticky works reliably */
+#colorlib-page {
+  overflow: visible !important;
+}
