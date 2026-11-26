@@ -2088,3 +2088,65 @@ p {
   margin-bottom: 0 !important;
 }
 
+/* =======================================================
+*  PUBLICATIONS & PATENTS CARDS
+* ======================================================= */
+
+.ip-card {
+  background: #12161d;
+  border: 1px solid #1e293b;
+  border-left: 4px solid #38bdf8;
+  border-radius: 8px;
+  padding: 24px 28px;
+  margin-bottom: 24px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.25s ease, border-color 0.25s ease;
+}
+
+.ip-card:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8;
+}
+
+.ip-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  margin-bottom: 12px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  border-radius: 20px;
+}
+
+/* Subtle emerald-teal distinction for Patent Pending badge */
+.ip-badge-patent {
+  color: #34d399;
+  background: rgba(52, 211, 153, 0.12);
+  border-color: rgba(52, 211, 153, 0.3);
+}
+
+.ip-card h3 {
+  font-family: "Quicksand", Arial, sans-serif !important;
+  font-size: 18px !important;
+  font-weight: 700 !important;
+  line-height: 1.45 !important;
+  color: #f8fafc !important;
+  margin-bottom: 8px !important;
+}
+
+.ip-card .ip-meta {
+  font-size: 13px !important;
+  color: #94a3b8 !important;
+  margin-bottom: 12px !important;
+}
+
+.ip-card p {
+  font-size: 14px !important;
+  line-height: 1.7 !important;
+  color: #cbd5e1 !important;
+  margin-bottom: 0;
+}
