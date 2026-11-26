@@ -2014,3 +2014,77 @@ p {
 .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p:last-child {
   margin-bottom: 0 !important;
 }
+
+/* =======================================================
+*  MATCHING EDUCATION CARD DESIGN
+* ======================================================= */
+
+/* 1. Outer card wrapper matching your Work Experience cards */
+.colorlib-education .panel-default {
+  background: #12161d !important;
+  border: 1px solid #1e293b !important;
+  border-left: 4px solid #38bdf8 !important; /* Matching MRI Cyan accent bar */
+  border-radius: 8px !important;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35) !important;
+  overflow: hidden !important;
+  transition: transform 0.25s ease, border-color 0.25s ease !important;
+}
+
+.colorlib-education .panel-default:hover {
+  transform: translateY(-3px);
+  border-color: #38bdf8 !important;
+}
+
+/* 2. Degree title header bar */
+.colorlib-education .panel-heading {
+  background: #161c26 !important;
+  border-bottom: 1px solid #1e293b !important;
+  padding: 0 !important;
+}
+
+.colorlib-education .panel-title span,
+.colorlib-education .panel-title a {
+  display: block !important;
+  padding: 18px 24px !important;
+  font-family: "Quicksand", Arial, sans-serif !important;
+  font-size: 17px !important;
+  font-weight: 700 !important;
+  letter-spacing: 0.5px !important;
+  text-transform: none !important;
+  color: #f8fafc !important;
+  background: transparent !important;
+}
+
+/* 3. Card body & university / coursework typography */
+.colorlib-education .panel-body {
+  background: #12161d !important;
+  padding: 24px 28px !important;
+  border-top: none !important;
+  color: #cbd5e1 !important;
+}
+
+.colorlib-education .panel-body h4 {
+  font-family: "Quicksand", Arial, sans-serif !important;
+  font-size: 16px !important;
+  font-weight: 700 !important;
+  color: #38bdf8 !important;
+  margin-bottom: 8px !important;
+}
+
+.colorlib-education .panel-body h5 {
+  font-family: "Quicksand", Arial, sans-serif !important;
+  font-size: 12px !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: 1px !important;
+  color: #38bdf8 !important;
+  margin-bottom: 10px !important;
+}
+
+.colorlib-education .panel-body p {
+  font-size: 14px !important;
+  line-height: 1.75 !important;
+  color: #cbd5e1 !important;
+  margin-bottom: 0 !important;
+}
+
