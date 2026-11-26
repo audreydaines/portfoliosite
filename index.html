@@ -606,16 +606,22 @@
 <script>
 (function() {
   const canvas = document.getElementById("scroll-animation-canvas");
+  if (!canvas) return;
   const context = canvas.getContext("2d");
 
-  // 1. CONFIGURE YOUR SEQUENCE HERE
+  // 1. CONFIGURE YOUR SEQUENCE2 HERE
   const startFrame = 10; // Starts on ezgif-frame-010.jpg
-  const endFrame = 180;  // <-- Replace with your last ezgif frame number
-  const speed = 5.0;     // 2.0 = plays forward to end, then reverses back to start once
+  const endFrame = 180;  // Last ezgif frame number
+  const speed = 5.0;     // Playback speed multiplier
 
   const currentFrame = index => (
     `images/sequence2/ezgif-frame-${String(index).padStart(3, '0')}.jpg`
   );
+
+  // Build list of frame numbers from 10 to 180
+  const frameNumbers = [];
+  for (let i = startFrame; i <= endFrame; i++) {
+    frameNumbers.push(i);
   }
   const totalFrames = frameNumbers.length;
 
@@ -664,7 +670,6 @@
   });
 })();
 </script>
-
-	</body>
+</body>
 </html>
 
