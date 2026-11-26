@@ -69,9 +69,6 @@
 
   if (!overlay || !video) return;
 
-  if (sessionStorage.getItem("introPlayed") === "true") {
-    overlay.style.display = "none";
-    return;
   }
   sessionStorage.setItem("introPlayed", "true");
 
